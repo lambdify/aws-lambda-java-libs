@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * Class that represents an APIGatewayProxyRequestEvent
+ * Class that represents an APIGatewayProxyRequestEvent.
+ *
+ * Acknowledgement to <b>oharaandrew314</b> the following patch:
+ * https://github.com/oharaandrew314/aws-lambda-java-libs/blob/860de1d606347f19f92e247f885bfe268072bebb/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events/APIGatewayProxyRequestEvent.java
  */
 public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
 
@@ -54,6 +57,8 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
         private String apiId;
 
         private String path;
+
+        private Map<String, String> authorizer;
 
         /**
          * default constructor
@@ -264,6 +269,19 @@ public class APIGatewayProxyRequestEvent implements Serializable, Cloneable {
          */
         public ProxyRequestContext withPath(String path) {
             this.setPath(path);
+            return this;
+        }
+
+        public Map<String, String> getAuthorizer() {
+            return authorizer;
+        }
+
+        public void setAuthorizer(Map<String, String> authorizer) {
+            this.authorizer = authorizer;
+        }
+
+        public ProxyRequestContext withAuthorizer(Map<String, String> authorizer) {
+            this.authorizer = authorizer;
             return this;
         }
 
