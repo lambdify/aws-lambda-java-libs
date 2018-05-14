@@ -12,11 +12,9 @@
  */
 package com.amazonaws.services.lambda.runtime.events;
 
-import org.joda.time.DateTime;
-
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * Represents an Amazon SNS event.
@@ -181,7 +179,7 @@ public class SNSEvent implements Serializable, Cloneable {
 
         private String signature;
 
-        private DateTime timestamp;
+        private ZonedDateTime timestamp;
 
         private String topicArn;
 
@@ -421,7 +419,7 @@ public class SNSEvent implements Serializable, Cloneable {
          * Gets the message time stamp
          * @return timestamp of sns message
          */
-        public DateTime getTimestamp() {
+        public ZonedDateTime getTimestamp() {
             return timestamp;
         }
 
@@ -429,7 +427,7 @@ public class SNSEvent implements Serializable, Cloneable {
          * Sets the message time stamp
          * @param timestamp A Date object representing the message time stamp
          */
-        public void setTimestamp(DateTime timestamp) {
+        public void setTimestamp(ZonedDateTime timestamp) {
             this.timestamp = timestamp;
         }
 
@@ -437,7 +435,7 @@ public class SNSEvent implements Serializable, Cloneable {
          * @param timestamp timestamp
          * @return SNS
          */
-        public SNS withTimestamp(DateTime timestamp) {
+        public SNS withTimestamp(ZonedDateTime timestamp) {
             setTimestamp(timestamp);
             return this;
         }

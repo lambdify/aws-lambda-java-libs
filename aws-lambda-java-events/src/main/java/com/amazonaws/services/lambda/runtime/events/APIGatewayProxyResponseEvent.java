@@ -13,7 +13,7 @@ public class APIGatewayProxyResponseEvent implements Serializable, Cloneable {
     private Integer statusCode;
 
     private Map<String, String> headers;
-    
+
     private String body;
 
     /**
